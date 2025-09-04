@@ -7,12 +7,16 @@ import img1 from "../assets/c10.png";
 import img2 from "../assets/c20.jpg";
 import img3 from "../assets/c30.jpg";
 import img4 from "../assets/c40.jpg";
+import img5 from "../assets/c30.jpg"; // ✅ new image
+import img6 from "../assets/c40.jpg"; // ✅ new image
 
 const products = [
   { id: 1, img: img1, rating: 5, reviews: 1, name: "4G Attachakki", price: "₹10000.00" },
   { id: 2, img: img2, rating: 4, reviews: 1, name: "5G Attachakki", price: "₹20000.00" },
   { id: 3, img: img3, rating: 5, reviews: 1, name: "Carnival Attachakki", price: "₹10000.00" },
   { id: 4, img: img4, rating: 5, reviews: 1, name: "Hybrid Attachakki", price: "₹10000.00" },
+  { id: 5, img: img5, rating: 4, reviews: 2, name: "Classic Attachakki", price: "₹15000.00" }, // ✅ added
+  { id: 6, img: img6, rating: 5, reviews: 3, name: "Deluxe Attachakki", price: "₹25000.00" }, // ✅ added
 ];
 
 const ProductSection = () => {
