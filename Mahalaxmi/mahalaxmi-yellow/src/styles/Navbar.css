@@ -1,0 +1,727 @@
+/* ✅ Global body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  background-color: #ffd700;
+  color: #050505;
+  text-align: center;
+  padding: 0.625rem;
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+  width: 100%;
+  z-index: 1000;
+  position: relative;
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem; /* fixed 1.5re -> 1.5rem */
+  background-color: #ffffff;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition: background-color 0.3s ease;
+}
+
+/* Left nav links (Home, Shop, About Us...) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2.0rem;   /* ✅ Increased spacing */
+  list-style: none;
+  padding-left: 7rem;
+}
+
+.nav-item a,
+.nav-item span {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-item a:hover,
+.nav-item span:hover {
+  color: #555;
+}
+
+/* Dropdown Menu (default) */
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #eee;
+  padding: 0.625rem 0;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  margin-top: 0.625rem;
+  border-radius: 0.25rem;
+  min-width: 10rem;
+  list-style: none;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: center;  /* ✅ Center submenu items */
+}
+
+.dropdown-menu li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Logo Center */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+}
+
+.logo-image {
+  height: 3.75rem;
+  width: auto;
+  display: block;
+}
+
+/* Right nav (icons) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;   /* ✅ Increased spacing */
+  padding-right: 7rem;
+}
+
+/* Base icon sizing + smooth interactions */
+.nav-right .icon,
+.search-container svg,
+.cart-icon svg {
+  cursor: pointer;
+  font-size: clamp(1.5rem, 2.5vw, 1.5rem);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.nav-right .icon:hover,
+.search-container svg:hover {
+  transform: scale(1.1);
+}
+
+.nav-right .icon:focus,
+.search-container svg:focus {
+  outline: 2px solid #ffd700;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-badge,
+.wishlist-badge {
+  position: absolute;
+  top: -0.3125rem;
+  right: -0.5rem;
+  background: #ffd700;
+  color: #000;
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 100%;       /* opens on the left side of icon */
+  transform: translateY(-50%);
+  background: rgb(255, 245, 172);
+  border: 1px solid #ddd;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;   /* ⬅️ space between icon and box */
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.875rem;
+  width: 180px;
+  background: transparent;
+}
+
+.search-input:focus {
+  border: none;
+  outline: none;
+}
+
+/* Mobile menu icon */
+.mobile-menu-icon {
+  display: none;
+  font-size: clamp(1.125rem, 3vw, 1.375rem);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mobile-menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.mobile-menu-icon:focus {
+  outline: 2px solid #ffd700;
+}
+
+/* User dropdown */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;                  /* ✅ directly below the icon */
+  left: 50%;                  /* ✅ center horizontally */
+  transform: translateX(-50%);
+  background: #fff;
+  border: none;               /* ✅ remove border */
+  padding: 0.5rem 0;          /* optional spacing */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional subtle shadow */
+  border-radius: 0.25rem;
+  z-index: 1000;
+  min-width: 8rem;
+
+  font-family: 'Arial', sans-serif; /* ✅ set font */
+  font-size: 0.95rem;               /* optional: size */
+  color: #333;                      /* text color */
+}
+
+/* Links inside the dropdown */
+/* Style for user name text beside the icon */
+.user-dropdown .user-name {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Ensure dropdown menu looks consistent */
+.user-dropdown .dropdown-menu {
+  position: absolute;
+  top: 40px; /* adjust if needed */
+  right: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.user-dropdown .dropdown-heading {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.user-dropdown .dropdown-menu li {
+  list-style: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-dropdown .dropdown-menu li:hover {
+  background: #f7f7f7;
+}
+
+.user-dropdown .dropdown-menu a,
+.user-dropdown .dropdown-menu button {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+
+
+/* Shop dropdown */
+.shop-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.shop-dropdown .dropdown-menu {
+  top: 100%;
+  left: 50%;               /* ✅ Centered under Shop */
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #eee;
+  padding: 0.625rem 0;
+  box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
+  border-radius: 0.25rem;
+  z-index: 1000;
+  min-width: 10rem;
+  display: none;
+}
+
+.shop-dropdown .dropdown-menu.active {
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll background */
+.navbar-container.scrolled {
+  background-color: #ffd700;
+}
+
+/* --- Icon colors & specificity fixes --- */
+
+/* Base color for all right-side SVGs */
+.nav-right svg {
+  color: #3f3f3c;
+  transition: color 0.3s ease;
+}
+
+.nav-right svg:hover {
+  color: #3f3f3c;
+}
+
+.nav-right svg:focus {
+  outline: 2px solid #3c3e3f;
+}
+
+/* Default icon color (class-based) */
+.nav-right .icon {
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Active state - force white on active icons (search/user or when route = wishlist/cart) */
+.nav-right .icon.active,
+.nav-right a .icon.active {
+  color: #e03636 !important; /* ensure this beats generic svg rule */
+}
+
+/* Rotate chevron */
+.dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.account-symbol {
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.dropdown-heading {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.25rem;
+  background: #fafafa;
+}
+
+/* Responsive */
+@media (max-width: 48rem) {
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .nav-left {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1.25rem 0;
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+    z-index: 998;
+    gap: 1.5rem;  /* ✅ More space on mobile too */
+  }
+
+  .nav-left.mobile-active {
+    display: flex;
+  }
+
+  .nav-left .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  
+  .nav-right {
+    gap: 0.75rem;
+    padding-right: 1rem;
+  }
+
+  .nav-center {
+    position: static;
+    transform: none;
+    margin: 0.625rem auto;
+  }
+
+  .logo-image {
+    height: 2.5rem;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    margin-top: 0.5rem;
+    box-shadow: none;
+    border: none;
+  }
+
+  .search-box-wrapper {
+    top: 50%;
+    left: 0;
+    right: auto;
+    transform: translateY(-50%);
+    width: 90%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .navbar-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .announcement-bar {
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .navbar-container {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .logo-image {
+    height: 2rem;
+  }
+
+  .search-box-wrapper {
+    padding: 0.375rem;
+  }
+
+  .search-input {
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ✅ Keep dropdown visible (React + hover support) */
+.shop-dropdown .dropdown-menu {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Show on hover OR when active */
+.shop-dropdown:hover .dropdown-menu,
+.shop-dropdown .dropdown-menu.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto; /* ensures it's clickable */
+}
+
+/* Active left nav item */
+.nav-left .active-left > a,
+.nav-left .active-left > span {
+  color: rgba(255, 100, 100, 0.964);        /* ✅ change to red */
+  font-weight: 700;  /* optional: make it bolder */
+}
+/* Cart Drawer */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden initially for all screen sizes */
+  width: 450px;
+  max-width: 100%; /* ensures it fits small screens */
+  height: 100vh;
+  background: #fff;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.cart-item-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cart-item-details h5 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cart-item-details p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.cart-drawer-total {
+  position: sticky;   /* stays visible while scrolling */
+  bottom: 0;
+  background: #fff9e6; /* light yellow highlight */
+  padding: 15px 20px;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  z-index: 10;
+}
+
+.cart-drawer-total p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-drawer-total strong {
+  color: #070707; /* price color */
+  font-size: 1.2rem;
+}
+
+.cart-drawer-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.view-cart-btn,
+.checkout-btn {
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.view-cart-btn {
+  background: #ffdddd;
+}
+
+.view-cart-btn:hover {
+  background: #a1a1a1;
+}
+
+.checkout-btn {
+  background: #ffd700;
+}
+
+.checkout-btn:hover {
+  background: #a1a1a1;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+.cart-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cart-drawer {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-drawer {
+    width: 100%;
+    right: -100%;
+  }
+
+  .cart-item-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cart-drawer-header,
+  .cart-drawer-footer {
+    padding: 0.75rem 1rem;
+  }
+
+  .view-cart-btn,
+  .checkout-btn {
+    font-size: 0.85rem;
+    padding: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-details h5 {
+    font-size: 0.85rem;
+  }
+
+  .cart-item-details p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark overlay when cart is open */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* dim background */
+  z-index: 9998; /* just below drawer */
+}
+
+
+/* ✅ Logout button styling */
+.user-dropdown .dropdown-menu button {
+  width: 100%;                /* take full width of dropdown */
+  padding: 10px 16px;
+  background: none;           /* no background by default */
+  border: none;
+  color: #e63946;             /* red text */
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.user-dropdown .dropdown-menu button:hover {
+  background: #ffe5e5;        /* light red background on hover */
+  color: #b71c1c;             /* darker red text */
+}
+.wishlist-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.wishlist-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #FFD500;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  line-height: 1;
+}

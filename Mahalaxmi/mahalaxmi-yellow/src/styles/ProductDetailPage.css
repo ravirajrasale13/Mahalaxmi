@@ -1,0 +1,25 @@
+.product-detail-wrapper {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-detail-image {
+  width: 400px;
+  border-radius: 12px;
+}
+
+.product-detail-content {
+  max-width: 600px;
+}
+
+.product-detail-content h1 {
+  margin-bottom: 1rem;
+}
+
+.product-detail-content ul {
+  margin-top: 0.5rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+

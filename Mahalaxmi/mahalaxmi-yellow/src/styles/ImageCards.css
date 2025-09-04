@@ -1,0 +1,116 @@
+/* Image Cards Container */
+.image-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* Image Card */
+.image-card {
+    position: relative;
+    width: 28.5%;
+    height: auto; /* allows expansion when details open */
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #f7f1f1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .image-card {
+        width: 33.33%;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-card {
+        width: 100%;
+    }
+}
+
+/* Card Image */
+.image-card img {
+    width: 100%;
+    height: 560px; /* fixed height */
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+}
+
+/* Title Text */
+.image-text {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.8;
+}
+
+/* Small Yellow Arrow Button */
+.image-cards-arrow {
+    position: absolute;
+    bottom: 15px;       /* position from bottom */
+    right: 15px;        /* position from right */
+    width: 40px;        /* smaller size */
+    height: 40px;
+    background-color: #f8f803; /* bright yellow */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;    /* arrow size */
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 2;
+}
+
+.image-cards-arrow:hover {
+    background-color: #f9a825; /* darker yellow */
+    transform: scale(1.05);
+}
+
+/* Details Panel */
+.image-details {
+    background-color: #f9f9f9;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #444;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    animation: slideDown 0.3s ease;
+}
+
+/* Smooth opening animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

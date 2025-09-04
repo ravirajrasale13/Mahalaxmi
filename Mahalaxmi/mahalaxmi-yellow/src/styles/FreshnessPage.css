@@ -1,0 +1,114 @@
+.freshness-section {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.freshness-container {
+    width: 89%;
+    max-width: 100%; /* remove the 1700px limit */
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+/* Heading */
+.freshness-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #222;
+}
+
+.freshness-subheading {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f5cc00;
+    /* yellow accent */
+    margin-top: 10px;
+    /* center below the first line */
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Image */
+/* Image Wrapper */
+.freshness-image-wrapper {
+    width: 100%;
+    max-width: 2000px;   /* increased from 2200px */
+    max-height: 500px;   /* optionally increase height too */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.freshness-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+/* Features Row */
+.freshness-features {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+/* Each feature */
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 1 20%;
+    /* roughly 4 items on one row */
+    min-width: 200px;
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: #f5cc00;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.feature-item h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 0 6px 0;
+    color: #222;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .freshness-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feature-item {
+        flex: 1 1 100%;
+        min-width: auto;
+    }
+
+    .freshness-heading,
+    .freshness-subheading {
+        font-size: 2.2rem;
+    }
+
+    .freshness-image-wrapper {
+        max-height: 400px;
+    }
+}

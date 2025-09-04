@@ -1,0 +1,23 @@
+@import "./LoginForm.css"; /* Reuse login styles */
+
+/* Page-specific changes for Register */
+.login-form h2 {
+  color: #111; /* Dark heading for consistency */
+}
+
+/* Button same as login */
+.login-form button {
+  background: linear-gradient(90deg, #fdf133, #f9e30f);
+  color: #111;
+}
+
+.login-form button:hover {
+  background: linear-gradient(90deg, #e5c100, #d4b300);
+  color: #000;
+  transform: scale(1.03);
+}
+
+/* Register page specific link hover */
+.login-form a:hover {
+  color: #fdd835; /* Yellow hover */
+}
