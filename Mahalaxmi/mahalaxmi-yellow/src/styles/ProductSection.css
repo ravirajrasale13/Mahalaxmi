@@ -133,19 +133,19 @@
   border: none;
   border-radius: 50%;
   font-size: 20px;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   z-index: 10;
   transition: background 0.3s ease;
 }
 .arrow:hover {
-  background: #ffcc00;
+  background: #d8d8d8;
 }
 .arrow.left {
-  left: -25px;
+  left: 10px;
 }
 .arrow.right {
-  right: -25px;
+  right: 10px;
 }
 
 /* ✅ Responsive */

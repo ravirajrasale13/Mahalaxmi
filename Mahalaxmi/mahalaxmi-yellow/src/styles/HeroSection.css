@@ -26,14 +26,18 @@
   height: 100%; /* match wrapper height */
   overflow: hidden;
   position: relative;
+  border-radius: 40px; /* ⬅️ Increase curve */
 }
+
 
 .background-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 40px; /* ⬅️ match container */
 }
+
 
 /* Overlay */
 .hero-overlay {

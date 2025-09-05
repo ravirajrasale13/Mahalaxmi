@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
-import { useWishlist } from "../context/WishlistContext";
 import "../styles/ProductDetail.css";
 import img1 from "../assets/c10.png";
 import img5 from "../assets/c20.jpg";
@@ -104,7 +103,6 @@ const ProductDetail = () => {
 
   // ✅ pull setBuyNowItem from CartContext
   const { addToCart, setBuyNowItem } = useCart();
-  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
 
   if (!product) return <h2>Product Not Found</h2>;
 
@@ -116,15 +114,6 @@ const ProductDetail = () => {
   const handleBuyNow = () => {
     setBuyNowItem({ ...product, image: mainImage, quantity });
     navigate("/checkout");
-  };
-
-  const isInWishlist = wishlist.some((item) => item.id === product.id);
-  const handleWishlistClick = () => {
-    if (isInWishlist) {
-      removeFromWishlist(product.id);
-    } else {
-      addToWishlist({ ...product, image: mainImage });
-    }
   };
 
   return (
@@ -186,12 +175,6 @@ const ProductDetail = () => {
             </button>
             <button className="buy-btn" onClick={handleBuyNow}>
               Buy Now
-            </button>
-            <button
-              className={`wishlist-btn ${isInWishlist ? "added" : ""}`}
-              onClick={handleWishlistClick}
-            >
-              {isInWishlist ? <FaHeart /> : <FaRegHeart />} Wishlist
             </button>
           </div>
         </div>

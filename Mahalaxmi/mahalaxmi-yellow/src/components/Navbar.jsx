@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { useWishlist } from "../context/WishlistContext";
 import {
-  FaSearch,
   FaUser,
-  FaHeart,
   FaShoppingBag,
   FaChevronDown,
   FaBars,
@@ -15,7 +12,6 @@ import logo from "../assets/logo.png";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
-  const [showSearch, setShowSearch] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const [showShopDropdown, setShowShopDropdown] = useState(false);
@@ -24,11 +20,9 @@ const Navbar = () => {
   const [showCartDrawer, setShowCartDrawer] = useState(false);
 
   const { cart } = useCart();
-  const { wishlist } = useWishlist();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const searchRef = useRef(null);
   const userRef = useRef(null);
   const shopRef = useRef(null);
   const closeTimeoutRef = useRef(null);
@@ -40,21 +34,13 @@ const Navbar = () => {
       setUser(storedUser);
     };
 
-    loadUser(); // run once on mount
-    window.addEventListener("userUpdated", loadUser); // listen for login/register
+    loadUser();
+    window.addEventListener("userUpdated", loadUser);
     return () => window.removeEventListener("userUpdated", loadUser);
   }, []);
 
-  // Toggle functions
   const toggleUserDropdown = () => {
     setShowUserDropdown((prev) => !prev);
-    setShowSearch(false);
-    setShowShopDropdown(false);
-  };
-
-  const toggleSearch = () => {
-    setShowSearch((prev) => !prev);
-    setShowUserDropdown(false);
     setShowShopDropdown(false);
   };
 
@@ -86,8 +72,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (searchRef.current && !searchRef.current.contains(e.target))
-        setShowSearch(false);
       if (userRef.current && !userRef.current.contains(e.target))
         setShowUserDropdown(false);
       if (shopRef.current && !shopRef.current.contains(e.target))
@@ -200,24 +184,6 @@ const Navbar = () => {
 
         {/* Right Icons */}
         <div className="nav-right">
-          {/* Search */}
-          <div className="search-container" ref={searchRef}>
-            <FaSearch
-              onClick={toggleSearch}
-              className={`icon ${showSearch ? "active" : ""}`}
-            />
-            {showSearch && (
-              <div className="search-box-wrapper">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="search-input"
-                  autoFocus
-                />
-              </div>
-            )}
-          </div>
-
           {/* User */}
           <div className="user-dropdown" ref={userRef}>
             <span onClick={toggleUserDropdown} style={{ cursor: "pointer" }}>
@@ -230,16 +196,13 @@ const Navbar = () => {
                 {user ? (
                   <>
                     <li className="dropdown-heading">Welcome, {user.name}</li>
-                     {/*<li>
-                      <Link to="/profile">Profile</Link>
-                    </li>{*/}
                     <li>
                       <button
                         onClick={() => {
                           localStorage.removeItem("user");
                           setUser(null);
                           navigate("/login");
-                          window.dispatchEvent(new Event("userUpdated")); // 🔥 update instantly on logout
+                          window.dispatchEvent(new Event("userUpdated"));
                         }}
                       >
                         Logout

@@ -103,77 +103,8 @@ body {
   padding-right: 7rem;
 }
 
-/* Base icon sizing + smooth interactions */
-.nav-right .icon,
-.search-container svg,
-.cart-icon svg {
-  cursor: pointer;
-  font-size: clamp(1.5rem, 2.5vw, 1.5rem);
-  transition: transform 0.2s ease, color 0.3s ease;
-}
-
-.nav-right .icon:hover,
-.search-container svg:hover {
-  transform: scale(1.1);
-}
-
-.nav-right .icon:focus,
-.search-container svg:focus {
-  outline: 2px solid #ffd700;
-}
-
 .cart-icon {
   position: relative;
-}
-
-.cart-badge,
-.wishlist-badge {
-  position: absolute;
-  top: -0.3125rem;
-  right: -0.5rem;
-  background: #ffd700;
-  color: #000;
-  font-size: 0.625rem;
-  padding: 0.125rem 0.375rem;
-  border-radius: 50%;
-  font-weight: 600;
-}
-
-/* Search */
-.search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-box-wrapper {
-  position: absolute;
-  top: 50%;
-  right: 100%;       /* opens on the left side of icon */
-  transform: translateY(-50%);
-  background: rgb(255, 245, 172);
-  border: 1px solid #ddd;
-  border-radius: 1.5rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  margin-right: 0.75rem;   /* ⬅️ space between icon and box */
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  padding: 0.35rem 0.5rem;
-  font-size: 0.875rem;
-  width: 180px;
-  background: transparent;
-}
-
-.search-input:focus {
-  border: none;
-  outline: none;
 }
 
 /* Mobile menu icon */
@@ -337,7 +268,7 @@ body {
   cursor: pointer;
 }
 
-/* Active state - force white on active icons (search/user or when route = wishlist/cart) */
+/* Active state - force white on active icons /user or when route = /cart) */
 .nav-right .icon.active,
 .nav-right a .icon.active {
   color: #e03636 !important; /* ensure this beats generic svg rule */
@@ -415,18 +346,6 @@ body {
     border: none;
   }
 
-  .search-box-wrapper {
-    top: 50%;
-    left: 0;
-    right: auto;
-    transform: translateY(-50%);
-    width: 90%;
-  }
-
-  .search-input {
-    width: 100%;
-  }
-
   .navbar-container {
     padding: 0.75rem 1rem;
   }
@@ -449,14 +368,6 @@ body {
 
   .logo-image {
     height: 2rem;
-  }
-
-  .search-box-wrapper {
-    padding: 0.375rem;
-  }
-
-  .search-input {
-    font-size: 0.75rem;
   }
 }
 
@@ -708,20 +619,5 @@ body {
   background: #ffe5e5;        /* light red background on hover */
   color: #b71c1c;             /* darker red text */
 }
-.wishlist-icon {
-  position: relative;
-  display: inline-block;
-}
 
-.wishlist-badge {
-  position: absolute;
-  top: -6px;
-  right: -10px;
-  background: #FFD500;
-  color: rgb(0, 0, 0);
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2px 6px;
-  line-height: 1;
-}
+
