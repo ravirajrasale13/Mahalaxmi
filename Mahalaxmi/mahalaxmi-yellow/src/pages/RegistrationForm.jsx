@@ -65,16 +65,20 @@ const RegistrationForm = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label>Mobile Number</label>
-            <input
-              type="number"
-              placeholder="Enter your number"
-              required
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-            />
-          </div>
+<input
+  type="tel"                    // no spinner
+  inputMode="numeric"           // mobile numeric keyboard
+  pattern="\d*"                 // simple HTML hint (optional)
+  placeholder="Enter your number"
+  required
+  value={mobile}
+  onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))} // keep digits only
+  onWheel={(e) => e.currentTarget.blur()}       // stop wheel changing value
+  onKeyDown={(e) => {                           // block arrow keys changing value
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') e.preventDefault();
+  }}
+/>
+
 
           <div className="form-group">
             <label>Password</label>
