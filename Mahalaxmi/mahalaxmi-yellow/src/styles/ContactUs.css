@@ -199,3 +199,41 @@
   height: 100%;
   object-fit: cover;
 }
+/* Contact Section Responsive Fix */
+@media (max-width: 992px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: stretch; /* ensures equal width */
+    padding: clamp(1rem, 4vw, 2rem);
+  }
+
+  .contact-info,
+  .contact-form-container {
+    flex: 1 1 100%;
+    min-width: 0; /* removes min-width restriction */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info,
+  .contact-form-container {
+    padding: 1rem;
+  }
+
+  .contact-form-container form input,
+  .contact-form-container form textarea {
+    padding: 0.5rem;
+  }
+
+  .contact-form-container button,
+  .map-direction .direction-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .map-container iframe {
+    aspect-ratio: auto;
+    height: 250px;
+  }
+}

@@ -3,10 +3,10 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import "../styles/ImageInfo.css";
 
 import shopimage from "../assets/shopimage.jpg"; 
-import img1 from "../assets/c1000.png";
-import img2 from "../assets/c100.png";
-import img3 from "../assets/c30.jpg";
-import img4 from "../assets/c40.jpg";
+import img1 from "../assets/c10.png";
+import img2 from "../assets/c20.jpg";
+import img3 from "../assets/c40.jpg";
+import img4 from "../assets/c30.jpg";
 
 const images = [
   {

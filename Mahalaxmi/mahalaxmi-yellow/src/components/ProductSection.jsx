@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "../styles/ProductSection.css";
 import { FaStar, FaChevronLeft, FaChevronRight, FaShoppingCart } from "react-icons/fa";
 
-import img1 from "../assets/c1000.png";
-import img2 from "../assets/c100.png";
+import img1 from "../assets/c10.png";
+import img2 from "../assets/c20.jpg";
 import img3 from "../assets/c30.jpg";
 import img4 from "../assets/c40.jpg";
 import img5 from "../assets/c30.jpg"; // ✅ new image

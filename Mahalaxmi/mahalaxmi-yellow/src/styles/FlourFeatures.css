@@ -17,7 +17,8 @@
 .flour-image-wrapper {
     flex: 1 1 40%;
     max-width: 500px;
-    height: 500px;
+    height: auto; /* ✅ allow natural scaling */
+    aspect-ratio: 1 / 1; /* ✅ keeps square shape but responsive */
     overflow: hidden;
     border-radius: 24px;
     position: relative;
@@ -51,14 +52,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .flour-heading {
     font-size: 2.2rem;
     font-weight: 700;
     position: relative;
-    line-height: 1.2;
+    line-height: 0;
     color: #000;
     display: inline-flex;
     align-items: center;
@@ -69,7 +70,7 @@
     position: absolute;
     bottom: 6px;
     left: 0;
-    width: calc(100% - 80px);
+    width: 100%; /* ✅ span full width on small screens */
     height: 6px;
     background: #f5cc00;
     clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
@@ -97,7 +98,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
 }
 
@@ -132,7 +133,7 @@
 /* Medium desktops & tablets */
 @media (max-width: 1100px) {
     .flour-heading { font-size: 2rem; }
-    .flour-image-wrapper { height: 380px; }
+    .flour-image-wrapper { aspect-ratio: 4 / 3; } /* ✅ less tall */
 }
 
 /* Stack layout on tablets */
@@ -147,7 +148,6 @@
     .flour-text-content {
         flex: 1 1 100%;
         max-width: 100%;
-        height: auto !important;
         margin-left: 0;
     }
 
@@ -167,6 +167,7 @@
 
     .flour-heading { font-size: 1.6rem; }
     .flour-description { font-size: 0.95rem; }
+    .flour-features-section { padding: 30px 8px; } /* ✅ less padding */
 }
 
 /* Extra small phones */
@@ -174,5 +175,6 @@
     .flour-heading { font-size: 1.4rem; }
     .flour-heading .easy-text { font-size: 1.4rem; }
     .feature-item h3 { font-size: 0.9rem; }
+    .flour-description { font-size: 0.9rem; }
+    .flour-features-section { padding: 25px 6px; } /* ✅ compact */
 }
-    

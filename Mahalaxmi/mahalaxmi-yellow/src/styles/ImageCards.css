@@ -1,4 +1,4 @@
-/* Image Cards Container */
+/* ✅ Image Cards Container */
 .image-cards-container {
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
     flex-wrap: wrap;
 }
 
-/* Image Card */
+/* ✅ Image Card */
 .image-card {
     position: relative;
     width: 28.5%;
@@ -21,7 +21,7 @@
     flex-direction: column;
 }
 
-/* Responsive adjustments */
+/* ✅ Responsive Card Widths */
 @media (max-width: 1024px) {
     .image-card {
         width: 33.33%;
@@ -40,23 +40,43 @@
     }
 }
 
-/* Card Image */
+/* ✅ Card Image (Responsive height) */
 .image-card img {
     width: 100%;
-    height: 560px; /* fixed height */
+    height: auto;
+    max-height: 560px; /* desktop max height */
     object-fit: cover;
     border-radius: 30px;
     display: block;
 }
 
-/* Title Text */
+/* Responsive Image Heights */
+@media (max-width: 1024px) {
+    .image-card img {
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-card img {
+        max-height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-card img {
+        max-height: 240px;
+    }
+}
+
+/* ✅ Title Text */
 .image-text {
     position: absolute;
     bottom: 30px;
     left: 20px;
     color: white;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* desktop */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     pointer-events: none;
     display: flex;
@@ -64,19 +84,40 @@
     line-height: 1.8;
 }
 
-/* Small Yellow Arrow Button */
+/* Responsive Font Scaling */
+@media (max-width: 1024px) {
+    .image-text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-text {
+        font-size: 1rem;
+        bottom: 20px;
+        left: 15px;
+    }
+}
+
+/* ✅ Small Yellow Arrow Button */
 .image-cards-arrow {
     position: absolute;
-    bottom: 15px;       /* position from bottom */
-    right: 15px;        /* position from right */
-    width: 40px;        /* smaller size */
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
     height: 40px;
     background-color: #f8f803; /* bright yellow */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;    /* arrow size */
+    font-size: 18px;
     color: black;
     font-weight: bold;
     cursor: pointer;
@@ -91,7 +132,28 @@
     transform: scale(1.05);
 }
 
-/* Details Panel */
+/* Responsive Arrow Size */
+@media (max-width: 768px) {
+    .image-cards-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-cards-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* ✅ Details Panel */
 .image-details {
     background-color: #f9f9f9;
     padding: 14px;
@@ -103,7 +165,7 @@
     animation: slideDown 0.3s ease;
 }
 
-/* Smooth opening animation */
+/* ✅ Smooth opening animation */
 @keyframes slideDown {
     from {
         opacity: 0;

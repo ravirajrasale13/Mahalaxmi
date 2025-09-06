@@ -3,8 +3,8 @@ import "../styles/ShopPage.css";
 import { useCart } from "../context/CartContext";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Attachakki4G from "../assets/c1000.png";
-import Attachakki5G from "../assets/c100.png";
+import Attachakki4G from "../assets/c10.png";
+import Attachakki5G from "../assets/c20.jpg";
 import AttachakkiCarnival from "../assets/c30.jpg"; // ✅ Carnival
 import AttachakkiHybrid from "../assets/c40.jpg";   // ✅ Hybrid
 
