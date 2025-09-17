@@ -159,26 +159,6 @@ const Navbar = () => {
     <li>
       <Link to="/shop/carnival">Carnival Attachakki</Link>
     </li>
-    
-   {/* Dummy Products */}
-    <li>
-      <Link to="/shop/classic">Classic Attachakki</Link>
-    </li>
-    <li>
-      <Link to="/shop/supreme">Supreme Attachakki</Link>
-    </li>
-    <li>
-      <Link to="/shop/eco">Eco Attachakki</Link>
-    </li>
-    <li>
-      <Link to="/shop/pro">Pro Attachakki</Link>
-    </li>
-    <li>
-      <Link to="/shop/mini">Mini Attachakki</Link>
-    </li>
-    <li>
-      <Link to="/shop/mega">Mega Attachakki</Link>
-    </li>
   </ul>
 </li>
           <li className={`nav-item ${isActive("/about") ? "active-left" : ""}`}>
