@@ -231,6 +231,7 @@ textarea.checkout-input {
 /* Return to Cart Button */
 .checkout-buttons button:first-child {
   background-color: #bdbaba;
+  -webkit-text-fill-color: #000;
   color: #fff;
 }
 
