@@ -227,3 +227,119 @@
 .additional-info ul li {
   margin-bottom: 5px;
 }
+
+/* --- Similar Products Section --- */
+.similar-products {
+  margin-top: 40px;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+/* Heading */
+.similar-products h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+/* Grid layout */
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Card */
+.similar-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ Center all child elements */
+  text-align: center;   /* ✅ Center text content */
+  
+  gap: 8px;
+  min-height: 360px;
+}
+
+/* Hover effect */
+.similar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+}
+
+/* Product image */
+.similar-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Rating row */
+.similar-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.similar-rating .star {
+  color: #facc15;
+  font-size: 16px;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.reviews {
+  color: #777;
+  font-size: 13px;
+}
+
+/* Category */
+.similar-category {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  margin: 6px 0 2px;
+  letter-spacing: 1px;
+}
+
+/* Product name */
+.similar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  margin: 4px 0 6px;
+  line-height: 1.2;
+}
+
+/* Price styling */
+.similar-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: rgb(255, 79, 79); /* or #e63946 for red */
+  margin-top: auto;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .similar-card-img { height: 180px; }
+  .similar-card { min-height: 320px; }
+}

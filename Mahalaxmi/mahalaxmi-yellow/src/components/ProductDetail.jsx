@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import "../styles/ProductDetail.css";
+
 import img1 from "../assets/c10.png";
 import img5 from "../assets/c20.jpg";
 import img6 from "../assets/c30.jpg";
@@ -101,8 +102,12 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [mainImage, setMainImage] = useState(product?.images[0]);
 
-  // ✅ pull setBuyNowItem from CartContext
   const { addToCart, setBuyNowItem } = useCart();
+
+  // ✅ Fix: update mainImage when product changes
+  useEffect(() => {
+    setMainImage(product?.images[0]);
+  }, [product]);
 
   if (!product) return <h2>Product Not Found</h2>;
 
@@ -110,15 +115,18 @@ const ProductDetail = () => {
     addToCart({ ...product, image: mainImage }, quantity);
   };
 
-  // ✅ Buy Now now sets a separate buyNowItem
   const handleBuyNow = () => {
     setBuyNowItem({ ...product, image: mainImage, quantity });
     navigate("/checkout");
   };
 
+  // ✅ Similar products (all other products except current)
+  const similarProducts = products.filter((p) => p.id !== product.id);
+
   return (
     <div className="product-detail">
       <div className="detail-container">
+        {/* Product Images */}
         <div className="image-section">
           <img src={mainImage} alt={product.name} className="main-product-img" />
           <div className="thumbnail-gallery">
@@ -133,6 +141,8 @@ const ProductDetail = () => {
             ))}
           </div>
         </div>
+
+        {/* Product Info */}
         <div className="info-section">
           <h1>{product.name}</h1>
           <div className="rating">
@@ -141,7 +151,6 @@ const ProductDetail = () => {
           </div>
 
           <p className="price">₹{product.price.toLocaleString()}</p>
-
           <p className="description big-description">{product.description}</p>
 
           <div className="additional-info">
@@ -179,6 +188,43 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+{/* ✅ Similar Products */}
+{similarProducts.length > 0 && (
+  <div className="similar-products">
+    <h2>Similar Products</h2>
+    <div className="similar-grid">
+      {similarProducts.map((sp, index) => (
+        <div
+          key={sp.id}
+          className="similar-card"
+          onClick={() => navigate(`/product/${sp.id}`)}
+          style={{
+            backgroundColor: "#f5f5f5", // same soft color for all cards
+          }}
+        >
+          <img src={sp.images[0]} alt={sp.name} className="similar-card-img" />
+          
+          {/* Rating */}
+          <div className="similar-rating">
+            <FaStar className="star" />
+            {sp.rating} ({sp.reviews} reviews)
+          </div>
+
+          {/* Category (optional) */}
+          <p className="similar-category">ACCESSORIES</p>
+
+          {/* Product name */}
+          <h3>{sp.name}</h3>
+
+          {/* Price */}
+          <p className="similar-price">₹{sp.price.toLocaleString()}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
