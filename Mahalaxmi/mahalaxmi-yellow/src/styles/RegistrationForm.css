@@ -1,23 +1,101 @@
 @import "./LoginForm.css"; /* Reuse login styles */
 
 /* Page-specific changes for Register */
-.login-form h2 {
-  color: #111; /* Dark heading for consistency */
+.login-form {
+  width: 460px;                /* wider than login */
+  max-width: 95%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Button same as login */
+.login-form:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Heading */
+.login-form h2 {
+  color: #111;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form input:focus {
+  border-color: #fdd835;
+  box-shadow: 0 0 6px rgba(253, 216, 53, 0.5);
+}
+
+/* Button (same as login, but wider feel) */
 .login-form button {
+  width: 100%;
   background: linear-gradient(90deg, #fdf133, #f9e30f);
   color: #111;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .login-form button:hover {
   background: linear-gradient(90deg, #e5c100, #d4b300);
   color: #000;
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Register page specific link hover */
+.login-form a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+}
+
 .login-form a:hover {
-  color: #fdd835; /* Yellow hover */
+  color: #fdd835;
+}
+
+/* Password field wrapper */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for eye icon */
+}
+
+/* Eye icon */
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  user-select: none;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+  color: #000;
 }
